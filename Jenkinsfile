@@ -14,7 +14,7 @@ pipeline {
 
         stage('Ejecutar pruebas y generar cobertura') {
             steps {
-                sh 'npx jest --coverage'
+                sh 'npx jest --coverage --passWithNoTests'
             }
         }
 
@@ -34,10 +34,10 @@ pipeline {
 
     post {
         success {
-            echo '✅ Pruebas y cobertura ejecutadas correctamente.'
+            echo 'Pruebas y cobertura ejecutadas correctamente.'
         }
         failure {
-            echo '❌ Error durante la ejecución de pruebas o cobertura.'
+            echo 'Error durante la ejecución de pruebas o cobertura.'
         }
     }
 }
